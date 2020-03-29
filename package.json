@@ -10,13 +10,16 @@
   "dependencies": {
     "@babel/runtime": "^7.8.3",
     "jquery": "^3.4.1",
-    "meteor-node-stubs": "^1.0.0"
+    "meteor-node-stubs": "^1.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-hot-middleware": "^2.25.0"
   },
-  "meteor": {
-    "mainModule": {
-      "client": "client/main.js",
-      "server": "server/main.js"
-    },
-    "testModule": "tests/main.js"
+  "devDependencies": {
+    "html-webpack-plugin": "^4.0.2",
+    "spacebars-loader": "^0.1.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-meteor-externals": "0.0.5",
+    "webpack-node-externals": "^1.7.2"
   }
 }

@@ -1,18 +1,17 @@
 import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Tasks } from '../api/tasks.js';
 
 import './tasks.js'
-import './body.html';
+import { template } from './tasksContainer.html';
 
-Template.body.onCreated(function bodyOnCreated() {
+Template.tasksContainer.onCreated(function bodyOnCreated() {
 	this.state = new ReactiveDict();
 	Meteor.subscribe('tasks');
 });
 
-Template.body.helpers({
+Template.tasksContainer.helpers({
 	tasks() {
 		const instance = Template.instance();
 		if (instance.state.get('hideCompleted')) {
@@ -26,7 +25,7 @@ Template.body.helpers({
 	},
 });
 
-Template.body.events({
+Template.tasksContainer.events({
 	'submit .new-task'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();
@@ -45,3 +44,6 @@ Template.body.events({
 		instance.state.set('hideCompleted', event.target.checked);
 	},
 });
+
+let target = document.getElementById( "meteor-app" );
+let html = Blaze.render(Template.tasksContainer, target);
