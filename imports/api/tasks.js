@@ -4,9 +4,13 @@ import { check } from 'meteor/check';
 
 export const Tasks = new Mongo.Collection('tasks');
 
+// console.log("tasks api is run");
+
+
 if (Meteor.isServer) {
 	// This code only runs on the server
 	Meteor.publish('tasks', function tasksPublication() {
+		console.log("publishing tasks")
 		return Tasks.find({
 			$or: [
 				{ private: { $ne: true } },
@@ -16,9 +20,22 @@ if (Meteor.isServer) {
 	});
 }
 
+export const Numbers = new Mongo.Collection('numbers');
+
+// console.log("numbers is run");
+
+if (Meteor.isServer) {
+	// This code only runs on the server
+	Meteor.publish('numbers', function numbersPublication() {
+		console.log("publishing numbers")
+		return Numbers.find({});
+	});
+}
+
 
 Meteor.methods({
 	'tasks.insert'(text) {
+		console.log("some test some more stuff blibli blabla")
 		check(text, String);
 
 		// Make sure the user is logged in before inserting a task

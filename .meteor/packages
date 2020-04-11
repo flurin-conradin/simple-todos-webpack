@@ -15,6 +15,7 @@ standard-minifier-css@1.6.0   # CSS minifier run for production mode
 standard-minifier-js@2.6.0    # JS minifier run for production mode
 shell-server@0.5.0            # Server-side component of the `meteor shell` command
 
+aldeed:template-extension
 reactive-dict
 accounts-ui
 accounts-password

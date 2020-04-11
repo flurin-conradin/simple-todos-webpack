@@ -6,6 +6,7 @@
 			<label class="hide-completed">
 				<input type="checkbox" />
 				Hide Completed Tasks
+				<span>{{numberGet}}</span>
 			</label>
 
 			{{> loginButtons}}
@@ -17,10 +18,17 @@
 			{{/if}}
 		</header>
 
-		<ul>
+		<ul id="tasks-ul">
 			{{#each tasks}}
+			{{toConsole this}}
 				{{> task}}
 			{{/each}}
 		</ul>
+<!--		<ul id="tasks-ul">-->
+<!--			{{#with tasks}}-->
+<!--				{{toConsole this}}-->
+<!--				{{> task}}-->
+<!--			{{/with}}-->
+<!--		</ul>-->
 	</div>
 </template>
