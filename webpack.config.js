@@ -18,7 +18,21 @@ const clientConfig = {
 			{
 				test: /\.coffee$/,
 				use: [ 'coffee-loader' ]
-			}
+			},
+			{
+				test: /\.less$/,
+				use: [
+					{
+						loader: 'style-loader',
+					},
+					{
+						loader: 'css-loader',
+					},
+					{
+						loader: 'less-loader',
+					},
+				],
+			},
 		],
 	},
 	devServer: {
