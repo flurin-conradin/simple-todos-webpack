@@ -47,5 +47,5 @@ Template.tasksContainer.events
 		instance.state.set 'hideCompleted', event.target.checked
 
 
-target = document.getElementById "meteor-app"
-Blaze.render Template.tasksContainer, target
+#target = document.getElementById "meteor-app"
+#Blaze.render Template.tasksContainer, target
