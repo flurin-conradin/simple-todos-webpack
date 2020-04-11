@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const clientConfig = {
 	mode: 'development',
 	target: 'web',
-	entry: './client/main.js',
+	entry: './client/main.coffee',
 	devtool: 'inline-source-map',
 	module: {
 		rules: [
@@ -15,6 +15,10 @@ const clientConfig = {
 				loader: 'spacebars-loader',
 				exclude: path.resolve(__dirname, 'client/main.html'),
 			},
+			{
+				test: /\.coffee$/,
+				use: [ 'coffee-loader' ]
+			}
 		],
 	},
 	devServer: {
@@ -38,10 +42,18 @@ const serverConfig = {
 	mode: 'development',
 	target: 'node', // in order to ignore built-in modules like path, fs, etc.
 	externals: [meteorExternals(), nodeExternals()], // in order to ignore all modules in node_modules folder
-	entry: './server/main.js',
+	entry: './server/main.coffee',
 	devServer: {
 		// does not work withouht, hot. No clue why
 		hot: true
+	},
+	module: {
+		rules: [
+			{
+				test: /\.coffee$/,
+				use: [ 'coffee-loader' ]
+			}
+		],
 	},
 };
 // TODO: probably install webpack-hot-server-middleware

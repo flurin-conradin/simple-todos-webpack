@@ -16,6 +16,8 @@
     "webpack-hot-middleware": "^2.25.0"
   },
   "devDependencies": {
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.5.1",
     "html-webpack-plugin": "^4.0.2",
     "spacebars-loader": "^0.1.0",
     "webpack-dev-middleware": "^3.7.2",
