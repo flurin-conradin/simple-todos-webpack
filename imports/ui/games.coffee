@@ -1,4 +1,5 @@
-import './games.html'
+import 'imports/ui/games.html'
+
 
 Template.games.helpers
 	games: ->

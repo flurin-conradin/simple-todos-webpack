@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
-import './tasks.html';
+import '/imports/ui/tasks.html';
+
 
 Template.task.helpers
 	isOwner: () ->

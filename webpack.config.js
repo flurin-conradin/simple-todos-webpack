@@ -49,7 +49,18 @@ const clientConfig = {
 			template: './client/main.html',
 			hash: true
 		})
-	]
+	],
+	resolve: {
+		modules: [
+			path.resolve(__dirname, 'node_modules'),
+			path.resolve(__dirname, './'), // enables you to use 'imports/...' instead of '/imports/...'
+		],
+		alias: {
+			'/imports': path.resolve(__dirname, './imports'),
+			// '/ui': path.resolve(__dirname, './ui'),
+			// ... and any other directories you might have
+		}
+	}
 };
 
 const serverConfig = {
@@ -71,5 +82,6 @@ const serverConfig = {
 	},
 };
 // TODO: probably install webpack-hot-server-middleware
+// TODO: read about webpack-dev-middleware webpack-server-middleware
 // TODO: which dependencies are dev and which are not?
 module.exports = [clientConfig, serverConfig];
