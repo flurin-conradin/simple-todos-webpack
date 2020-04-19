@@ -3,6 +3,7 @@ const path = require('path');
 const meteorExternals = require('webpack-meteor-externals');
 const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const clientConfig = {
 	mode: 'development',
 	target: 'web',
@@ -18,6 +19,14 @@ const clientConfig = {
 			{
 				test: /\.coffee$/,
 				use: [ 'coffee-loader' ]
+			},
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+					},
+				],
 			},
 			{
 				test: /\.less$/,
@@ -57,9 +66,9 @@ const clientConfig = {
 		],
 		alias: {
 			'/imports': path.resolve(__dirname, './imports'),
-			// '/ui': path.resolve(__dirname, './ui'),
-			// ... and any other directories you might have
-		}
+			'pix': path.resolve(__dirname, './public'),
+		},
+		extensions: ['.coffee', '.js']
 	}
 };
 
