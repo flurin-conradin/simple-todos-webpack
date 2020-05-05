@@ -5,6 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const clientConfig = {
+	stats: false, //remove this for webpack debugging
 	mode: 'development',
 	target: 'web',
 	entry: {
@@ -79,6 +80,7 @@ const clientConfig = {
 };
 
 const serverConfig = {
+	stats: false, //remove this for webpack debugging
 	mode: 'development',
 	target: 'node', // in order to ignore built-in modules like path, fs, etc.
 	externals: [meteorExternals(), nodeExternals()], // in order to ignore all modules in node_modules folder
