@@ -7,7 +7,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const clientConfig = {
 	mode: 'development',
 	target: 'web',
-	entry: './client/main.coffee',
+	entry: {
+		main: ['./client/main.coffee'],
+		games: ['./imports/ui/games.coffee']
+	},
 	devtool: 'inline-source-map',
 	module: {
 		rules: [
@@ -49,11 +52,14 @@ const clientConfig = {
 		hot: true
 	},
 	output: {
+		filename: '[name].bundle.js',
 		publicPath: '/'
 	},
 	externals: [meteorExternals()],
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
+		new webpack.HotModuleReplacementPlugin({
+			// multiStep: true  //no clear effect
+		}),
 		new HtmlWebpackPlugin({
 			template: './client/main.html',
 			hash: true
@@ -62,7 +68,7 @@ const clientConfig = {
 	resolve: {
 		modules: [
 			path.resolve(__dirname, 'node_modules'),
-			path.resolve(__dirname, './'), // enables you to use 'imports/...' instead of '/imports/...'
+			path.resolve(__dirname, './')
 		],
 		alias: {
 			'/imports': path.resolve(__dirname, './imports'),

@@ -1,5 +1,4 @@
-import '../../ui/tasksContainer.coffee';
-import '../../ui/games.coffee';
+import '../../ui/tasksContainer.coffee'
 import '../../ui/dummy.html'
 
 Router.route '/', ->
