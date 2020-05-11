@@ -20,7 +20,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
-  background: white;
+  //background: white;
 }
 
 header {
@@ -56,10 +56,9 @@ form {
   width: 100%;
   padding-right: 80px;
   font-size: 1em;
-}
-
-.new-task input:focus{
-  outline: 0;
+  &:focus {
+    outline: 0;
+  }
 }
 
 ul {
@@ -82,18 +81,16 @@ li {
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
-}
-
-li .text {
-  margin-left: 10px;
+  .text {
+    margin-left: 10px;
+  }
 }
 
 li.checked {
   color: #888;
-}
-
-li.checked .text {
-  text-decoration: line-through;
+  .text {
+    text-decoration: line-through;
+  }
 }
 
 li.private {
@@ -122,4 +119,8 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
+}
+
+.logo {
+  background: url(~pix/logo.png) no-repeat;
 }
